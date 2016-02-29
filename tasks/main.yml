@@ -17,6 +17,10 @@
   include: redhat.yml
   when: ansible_distribution in [ 'RedHat', 'CentOS' ]
 
+- name: fqdn | Configure Suse versions older than 12
+  include: old_suse.yml
+  when: ansible_os_family == "Suse" and ansible_distribution_major_version <= 11
+
 - name: fqdn | Configure Linux
   include: linux.yml
   when: ansible_system in  [ "Linux" ]

@@ -1,6 +1,7 @@
 ---
 - name: Set Hostname with hostname command
   hostname: name="{{ hostname }}"
+  when: not ( ansible_os_family == "Suse" and ansible_distribution_major_version <= 11 )
 
 - name: Re-gather facts
   action: setup

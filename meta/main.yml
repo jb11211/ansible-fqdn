@@ -17,6 +17,9 @@ galaxy_info:
         - name: Windows
           versions:
               - all
+        - name: opensuse
+          versions:
+              - all
     categories:
         - networking
         - system

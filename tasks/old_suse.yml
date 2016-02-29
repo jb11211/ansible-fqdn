@@ -1,0 +1,8 @@
+# FIXME work around outdated opensuse issue 
+# https://github.com/ansible/ansible-modules-core/issues/3137
+---
+  - name: "fqdn | Suse set /etc/hostname"
+    template: src=templates/etc_hostname.j2 dest=/etc/hostname owner=root group=root mode=0644
+
+  - name: "fqdn | Call /bin/hostname"
+    command: /bin/hostname "{{ hostname }}"
